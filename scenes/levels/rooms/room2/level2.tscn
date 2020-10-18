@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/levels/level.gd" type="Script" id=1]
+[ext_resource path="res://scenes/levels/rooms/room2/corredor.png" type="Texture" id=2]
+[ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/common/sceneChanger/changerTrigger.tscn" type="PackedScene" id=4]
+
+
+[sub_resource type="SegmentShape2D" id=1]
+a = Vector2( 32, -36 )
+b = Vector2( 32, 42 )
+
+[sub_resource type="SegmentShape2D" id=2]
+a = Vector2( 32, -34 )
+b = Vector2( 32, 44 )
+
+[node name="level2" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="room" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="room"]
+build_mode = 1
+polygon = PoolVector2Array( 0, 156, 320, 156, 320, 236, 0, 236 )
+
+[node name="corredor" type="Sprite" parent="room"]
+position = Vector2( 160, 120 )
+scale = Vector2( 1.66667, 1.875 )
+texture = ExtResource( 2 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 12, 180 )
+
+[node name="rightToRoom1" parent="." instance=ExtResource( 4 )]
+change_to = "res://scenes/levels/rooms/room/level1.tscn"
+trigger_area = NodePath("../rightToRoom1/Area2D")
+player_position = Vector2( 100, 44 )
+exit_direction = "right"
+direction = "down"
+
+[node name="Area2D" type="Area2D" parent="rightToRoom1"]
+position = Vector2( 76, -12 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rightToRoom1/Area2D"]
+position = Vector2( 212, 206 )
+shape = SubResource( 1 )
+
+[node name="leftToRoom3" parent="." instance=ExtResource( 4 )]
+change_to = "res://scenes/levels/rooms/room3/level3.tscn"
+trigger_area = NodePath("../leftToRoom3/Area2D")
+player_position = Vector2( 308, 180 )
+exit_direction = "left"
+direction = "left"
+
+[node name="Area2D" type="Area2D" parent="leftToRoom3"]
+position = Vector2( 76, -12 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="leftToRoom3/Area2D"]
+position = Vector2( -108, 204 )
+shape = SubResource( 2 )

@@ -1,0 +1,88 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/common/inventory/inventorySlot.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/common/inventory/inventory.gd" type="Script" id=2]
+
+
+
+[sub_resource type="Animation" id=1]
+resource_name = "selected"
+
+[node name="CanvasLayer" type="CanvasLayer"]
+pause_mode = 2
+
+[node name="Inventory" type="Panel" parent="."]
+visible = false
+margin_left = 48.0
+margin_top = 48.0
+margin_right = 272.0
+margin_bottom = 208.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InventorySlot" parent="Inventory" instance=ExtResource( 1 )]
+margin_left = 32.0
+margin_top = 20.0
+margin_right = 96.0
+margin_bottom = 44.0
+
+[node name="InventorySlot2" parent="Inventory" instance=ExtResource( 1 )]
+margin_left = 32.0
+margin_top = 44.0
+margin_right = 96.0
+margin_bottom = 68.0
+
+[node name="InventorySlot3" parent="Inventory" instance=ExtResource( 1 )]
+margin_left = 32.0
+margin_top = 68.0
+margin_right = 96.0
+margin_bottom = 92.0
+
+[node name="InventorySlot4" parent="Inventory" instance=ExtResource( 1 )]
+margin_left = 32.0
+margin_top = 92.0
+margin_right = 96.0
+margin_bottom = 116.0
+
+[node name="InventorySlot5" parent="Inventory" instance=ExtResource( 1 )]
+margin_left = 32.0
+margin_top = 116.0
+margin_right = 96.0
+margin_bottom = 140.0
+
+[node name="InventorySlot6" parent="Inventory" instance=ExtResource( 1 )]
+margin_left = 128.0
+margin_top = 20.0
+margin_right = 192.0
+margin_bottom = 44.0
+
+[node name="InventorySlot7" parent="Inventory" instance=ExtResource( 1 )]
+margin_left = 128.0
+margin_top = 44.0
+margin_right = 192.0
+margin_bottom = 68.0
+
+[node name="InventorySlot8" parent="Inventory" instance=ExtResource( 1 )]
+margin_left = 128.0
+margin_top = 68.0
+margin_right = 192.0
+margin_bottom = 92.0
+
+[node name="InventorySlot9" parent="Inventory" instance=ExtResource( 1 )]
+margin_left = 128.0
+margin_top = 92.0
+margin_right = 192.0
+margin_bottom = 116.0
+
+[node name="InventorySlox10" parent="Inventory" instance=ExtResource( 1 )]
+margin_left = 128.0
+margin_top = 116.0
+margin_right = 192.0
+margin_bottom = 140.0
+
+[node name="anim" type="AnimationPlayer" parent="."]
+anims/selected = SubResource( 1 )
+
+[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
